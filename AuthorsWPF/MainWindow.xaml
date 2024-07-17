@@ -1,0 +1,34 @@
+﻿<Window
+    x:Class="AuthorsWPF.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AuthorsWPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="640"
+    Height="480"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Margin="20 10 0 0" FontSize="20">Author</TextBlock>
+            <ComboBox Name="comboBox" VerticalContentAlignment="Center" Margin="20,10,0,0" Width="200" Height="40" HorizontalAlignment="Left"  SelectionChanged="comboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}" />
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding LastName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <DataGrid Height="340" Width="600" Margin="0 20 0 0" Name="resultDataGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Books" Binding="{Binding Name}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+    </Grid>
+</Window>
